@@ -59,7 +59,7 @@ def menu_refresh():                     #will refresh the menu each time it's us
     lrD.setText(fnc_array[2])
     pass
 
-def move_to_left(your_array):           #shift all the array to the right, in a loop fashion 
+def move_to_left(your_array):           #shift all the array to the left, in a loop fashion 
     tmp = your_array[0]                 #save the 1st element, it will be put in place of the last one
     for i in range(len(your_array)-1):  #for all element in the array minus 1        
         your_array[i]=your_array[i+1]   #replace element n°i by element n°i+1

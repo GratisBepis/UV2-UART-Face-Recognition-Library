@@ -1,7 +1,7 @@
 # UV2-UART-Face-Recognition-Library
 Micropython project to use the face recognition features of the M5stack UV2 AI camera from a Basice Core 1, without using the  UV2's web interface.
 
-Include a library and a test program.
+Includes a library and a test program.
 
 ## Hardware used : 
 ### M5stack unit V2

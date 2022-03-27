@@ -14,18 +14,12 @@ from m5ui import *
 from uiflow import *
 import json
 class uv2lib:
-   
-
-
-
 
 ##send whatever data you want to the UV 
     def choose_fnc(uart,fnc,args,uart_data):
         uart.write(str(uart_data))
         uart.write(''+"\r\n")
-        wait_ms(450)
-        pass
-    
+        wait_ms(450)  
     
 ##chose the function you want to use 
     def choose_fnc(uart,fnc,args):
@@ -33,7 +27,6 @@ class uv2lib:
         uart.write(str(uart_data))
         uart.write(''+"\r\n")
         wait_ms(450)
-        pass
     
 ##possible function are :       |   For arguments see : https://docs.m5stack.com/en/quick_start/unitv2/base_functions
 #Audio FFT                      
@@ -117,8 +110,6 @@ class uv2lib:
                 return_error+=32    #32
         except:
             pass          
-
-
         return [msg,running,status,prob,match_prob,name,error,return_error]
 
         
@@ -135,29 +126,21 @@ class uv2lib:
         uart.write(str(uart_data))
         uart.write(''+"\r\n")
 
-
 ##stop face recognition training 
 #The functions will send a command to the UV2 to stop the training
-
 
     def stop_face_reco_train(uart):
         uart_data='{"config":"Face Recognition","operation":"stoptrain"}'
         uart.write(str(uart_data))
         uart.write(''+"\r\n")
-        pass
 ##save your trained faces
     def face_reco_save_and_run(uart):
         uart_data='{"config":"Face Recognition ","operation":"saverun"}'
         uart.write(str(uart_data))
         uart.write(''+"\r\n")
-        pass
 
 #reset your saved faces
     def face_reco_reset(uart):
         uart_data='{"config":"Face Recognition","operation":"reset"}'
         uart.write(str(uart_data))
         uart.write(''+"\r\n")
-        pass
-
-
-

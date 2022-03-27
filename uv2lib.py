@@ -18,7 +18,7 @@ import json
 class uv2lib:
 
 ##send whatever data you want to the UV 
-    def send_data(uart,fnc,args,uart_data):
+    def send_data(uart,uart_data):
         uart.write(str(uart_data))
         uart.write(''+"\r\n")
         wait_ms(450) 

@@ -1,9 +1,11 @@
 ##UV2-UART-Face-Recognition-Library##
 #Thomas E. 2022
-# uart_read()
+# send_data()
 # choose_fnc()
 # get_data()
+# uart_read()
 # face_reco_train()
+# stop_face_reco_train
 # face_reco_save_and_run
 # face_reco_reset
 
@@ -16,19 +18,19 @@ import json
 class uv2lib:
 
 ##send whatever data you want to the UV 
-    def choose_fnc(uart,fnc,args,uart_data):
+    def send_data(uart,fnc,args,uart_data):
         uart.write(str(uart_data))
         uart.write(''+"\r\n")
-        wait_ms(450)  
-    
-##chose the function you want to use 
+        wait_ms(450) 
+        
+##choose the function you want to use 
     def choose_fnc(uart,fnc,args):
         uart_data='{"function":"'+str(fnc)+'","args":"'+str(args)+'"}'
         uart.write(str(uart_data))
         uart.write(''+"\r\n")
         wait_ms(450)
-    
-##possible function are :       |   For arguments see : https://docs.m5stack.com/en/quick_start/unitv2/base_functions
+            
+#possible functions are :       
 #Audio FFT                      
 #Camera Stream                  
 #Color Tracker                  
@@ -42,6 +44,7 @@ class uv2lib:
 #Shape Detector                 
 #Shape Matching                 
 #Target Tracker                 
+#For arguments see : https://docs.m5stack.com/en/quick_start/unitv2/base_functions
 
 ##get the data on an uart 
     def uart_read(uart):
@@ -111,15 +114,14 @@ class uv2lib:
             pass          
         return [msg,running,status,prob,match_prob,name,error,return_error]
 
-        
+###JSON COMMAND FUNCTIONS        
 ##face recognition training
-#the function will send a command to the UV2, with the an ID and a name
+#the function will send a command to the UV2, with an ID and a name
 #IDs must be set like this :
 #if there is already 2 face saved, new ID must be 2
 #Name should be in UTF-8 format for best compatibility
-#If a taining was started, it will send a JSON message to comfirm it
+#If a training was started, it will send a JSON message to comfirm it
 #Else if the face ID is invalid, it will also send a JSON message informing you that an error occured
-
     def face_reco_train(uart,ID,Name):
         uart_data='{"config":"Face Recognition","operation":"train","face_id":'+str(ID)+',"name":"'+str(Name)+'"}'
         uart.write(str(uart_data))
@@ -132,12 +134,13 @@ class uv2lib:
         uart_data='{"config":"Face Recognition","operation":"stoptrain"}'
         uart.write(str(uart_data))
         uart.write(''+"\r\n")
+        
 ##save your trained faces
     def face_reco_save_and_run(uart):
         uart_data='{"config":"Face Recognition ","operation":"saverun"}'
         uart.write(str(uart_data))
         uart.write(''+"\r\n")
-
+        
 #reset your saved faces
     def face_reco_reset(uart):
         uart_data='{"config":"Face Recognition","operation":"reset"}'

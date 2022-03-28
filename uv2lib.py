@@ -15,8 +15,8 @@ from m5stack import *
 from m5ui import *
 from uiflow import *
 import json
-class uv2lib:
 
+class uv2lib:
 ##send whatever data you want to the UV 
     def send_data(uart,uart_data):
         uart.write(str(uart_data))

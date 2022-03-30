@@ -5,9 +5,9 @@
 # get_data()
 # uart_read()
 # face_reco_train()
-# stop_face_reco_train
-# face_reco_save_and_run
-# face_reco_reset
+# stop_face_reco_train()
+# face_reco_save_and_run()
+# face_reco_reset()
 
 ##declarations 
 #libraries

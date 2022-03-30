@@ -15,4 +15,5 @@ https://shop.m5stack.com/collections/m5-controllers/products/esp32-basic-core-io
 https://shop.m5stack.com/collections/m5-modules/products/plus-module
 
 ## Documentation 
-### WIP 
+
+https://github.com/GratisBepis/UV2-UART-Face-Recognition-Library/wiki
